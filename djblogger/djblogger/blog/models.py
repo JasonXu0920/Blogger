@@ -2,6 +2,7 @@ from distutils.text_file import TextFile
 from django.db import models
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
+from django.urls import reverse
 
 # Create your models here.
 class Post(models.Model):
@@ -22,6 +23,9 @@ class Post(models.Model):
     status = models.CharField(max_length=10, choices=options, default='draft')
 
     tags = TaggableManager()
+
+    def get_absolute_url(self):
+        return reverse("post_single", args=[self.slug])
     class Meta:
         ordering = ("-created_at",)
 

@@ -61,6 +61,7 @@ TEMPLATES = [
             ],
             "builtins":[
                 "djblogger.blog.templatetags.tag_cloud",
+                "djblogger.blog.templatetags.markdown_processing",
             ]
         },
     },
